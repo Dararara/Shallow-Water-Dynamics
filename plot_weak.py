@@ -33,4 +33,4 @@ def pred_draw(mode = 1, inf = None, of = None, input_file='pred_out.npy',output_
         plt.show()
 
 #pred_draw('random_output_2.npy','random_pred.npy',10)
-pred_draw(2)
+pred_draw(1)
