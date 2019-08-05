@@ -71,7 +71,7 @@ for s in range(samples):
         datai = eta.reshape((1, 31, 31, 1))
     else:
         datai = np.concatenate((datai, eta.reshape((1, 31, 31, 1))), axis=0)
-
+    print(s)
     #time
     dt = 0.5
     Nsteps = 10
