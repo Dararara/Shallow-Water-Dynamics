@@ -92,5 +92,6 @@ for s in range(samples):
     else:
         datao = np.concatenate((datao, eta.reshape((1, 31, 31, 1))), axis=0)
 
+
 np.save('random_input.npy', datai)
 np.save('random_output.npy', datao)
