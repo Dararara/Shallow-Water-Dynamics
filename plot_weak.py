@@ -2,10 +2,15 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 
-def pred_draw(input_file='pred_out.npy',output_file='true_out.npy',samples=10,nx=31,ny=31):
-    inf = np.load(input_file)
-    of = np.load(output_file)
-
+def pred_draw(mode = 1, inf = None, of = None, input_file='pred_out.npy',output_file='true_out.npy',samples=10,nx=31,ny=31):
+    if(mode == 1):
+        input_file = input('the input file name: ')
+        output_file = input('the output file name: ')
+        inf = np.load(input_file)
+        of = np.load(output_file)
+    if(inf == None or of == None):
+        print('data wrong')
+        return
 #ri = np.load('D:/project/random/random_in_23333.npy')
 #ro = np.load( 'D:/project/random/random_out_23333.npy')
 
@@ -28,3 +33,4 @@ def pred_draw(input_file='pred_out.npy',output_file='true_out.npy',samples=10,nx
         plt.show()
 
 #pred_draw('random_output_2.npy','random_pred.npy',10)
+pred_draw(2)
