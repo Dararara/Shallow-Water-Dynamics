@@ -27,14 +27,8 @@ def inverse_predict(test_in, pred_out, din):
 
 
 
-def pred_draw(inf = None, of = None, samples = 10, nx = 31, ny = 31):
-    '''
-    try:
-        inf = np.load(input_file)
-        of = np.load(output_file)
-    except:
-        print("can't find the file")
-        return'''
+def pred_draw(inf = None, of = None, nx = 31, ny = 31):
+    # draw the 3d plot for two input matrices, with the error difference plot
     xcord = np.arange(1,nx+1,1)
     ycord = np.arange(1,ny+1,1)
     X,Y = np.meshgrid(xcord,ycord)
@@ -59,15 +53,6 @@ def pred_draw(inf = None, of = None, samples = 10, nx = 31, ny = 31):
         
     d_curve.set(xlim=(xmin,xmax),ylim=(ymin,ymax),zlim=(zmin,zmax))
     d_curve.plot_surface(X,Y,delta,cmap='rainbow')
-        #d_curve.view_init(60, 35)
+    #d_curve.view_init(60, 35)
     plt.show()
 
-
-
-import matplotlib.pyplot as plt
-for i in range(10):
-    ran = np.random.randint(0, 5000)
-    test_in = pred_out[ran]
-    test_out = din[ran]
-    result = inverse_index(test_in, pred_out)
-    pred_draw(inf=result, of = test_out)
