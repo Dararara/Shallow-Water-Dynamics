@@ -13,10 +13,10 @@ from keras import regularizers
 din = np.load('random_input.npy')
 dout = np.load('random_output.npy')
 #split data into training data and test data
-test_dout = dout[:5000]
-test_din = din[:5000]
-din = din[5000:]
-dout = dout[5000:]
+test_dout = dout[:dout.shape[0]/10]
+test_din = din[:din.shape[0]/10]
+din = din[din.shape[0]/10:]
+dout = dout[dout.shape[0]/10:]
 
 model = load_model('best_model_16.h5')
 r = np.random.randint(high = din.shape[0], low = 0, size= 10)#here we choose 10 samples from dataset
