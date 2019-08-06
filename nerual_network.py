@@ -7,7 +7,7 @@ from keras import regularizers
 from os import listdir
 import re
 
-def cnn(din , dout , test_din, test_dout, validation_split_num = 0.2,stop_patience = 3, hidden  = 1024, filter_num = 64, kernel_size_1 = (3,3), activation_1 = 'relu'):
+def cnn(din , dout , test_din = None, test_dout = None, validation_split_num = 0.2,stop_patience = 3, hidden  = 1024, filter_num = 64, kernel_size_1 = (3,3), activation_1 = 'relu'):
     #cnn with one con2D and one hidden layer
     #input is 31 * 31 * 1, output is 961
     #one callback for early stop, one callback to store the best most among all the epochs
@@ -26,24 +26,10 @@ def cnn(din , dout , test_din, test_dout, validation_split_num = 0.2,stop_patien
     #print(model.summary())
     #model.save('cnn_{}_{}_{}.h5'.format(filter_num, kernel_size_1[0], kernel_size_1[1]))
     
-def test_cnn(din, dout):
-    files = listdir()
-    model = load_model('best_model_8.h5')
+def test_cnn(din, dout, file_name = 'best_model_8.h5'):
+    model = load_model(file_name)
     mse, temp, mae = model.evaluate(x = din.reshape(-1, 31, 31, 1), y = dout.reshape(-1, 961))
-    print( mse, mae)
-    model = load_model('best_model_16.h5')
-    mse, temp, mae = model.evaluate(x = din.reshape(-1, 31, 31, 1), y = dout.reshape(-1, 961))
-    print( mse, mae)
-    model = load_model('best_model_32.h5')
-    mse, temp, mae = model.evaluate(x = din.reshape(-1, 31, 31, 1), y = dout.reshape(-1, 961))
-    print( mse, mae)
-    model = load_model('best_model_64.h5')
-    mse, temp, mae = model.evaluate(x = din.reshape(-1, 31, 31, 1), y = dout.reshape(-1, 961))
-    print( mse, mae)
-    model = load_model('best_model_128.h5')
-    mse, temp, mae = model.evaluate(x = din.reshape(-1, 31, 31, 1), y = dout.reshape(-1, 961))
-    print( mse, mae)
-
+    return mse, mae
 
 
 

@@ -10,39 +10,24 @@ from keras import regularizers
 from os import listdir
 import re
 
-#model = load_model('best_model_16.h5')
-#pred_out = model.predict(x=din.reshape(-1,31,31,1), verbose=1)
-#np.save("dpre.npy", pred_out)
-
-din = np.load("random_input.npy")
-dout = np.load('random_output.npy')
-pred_out = np.load('dpre.npy')
-
-dararara1 = np.zeros(shape = [50000])
-dararara2 = np.zeros(shape = [50000])
-def inverse_index(test_in, pred_out):
+def inverse_predict(test_in, pred_out, din):
     #get the inverse input and array of predict output
     #return the inverse output data
     index = -1
     mini = 10000000
     keep = 0
     for i in pred_out:
-        temp1 = np.sum(np.absolute(i - test_in.reshape(961)))/961
-        temp2 = np.sum(np.square(i - test_in.reshape(961)))/961
-        dararara1[keep] = temp1
-        dararara2[keep] = temp2
-        if temp2 < mini:
-            mini = temp2
+        temp = np.sum(np.square(i - test_in.reshape(961)))/961
+        if temp < mini:
+            mini = temp
             index = keep
         keep += 1
-    np.save('l1.npy', dararara1)
-    np.save('l2.npy', dararara2)
     return din[index]
 
 
 
 
-def pred_draw(input_file = 'pred_out.npy', output_file = 'true_out.npy',inf = None, of = None, samples = 10, nx = 31, ny = 31):
+def pred_draw(inf = None, of = None, samples = 10, nx = 31, ny = 31):
     '''
     try:
         inf = np.load(input_file)
@@ -50,9 +35,6 @@ def pred_draw(input_file = 'pred_out.npy', output_file = 'true_out.npy',inf = No
     except:
         print("can't find the file")
         return'''
-#ri = np.load('D:/project/random/random_in_23333.npy')
-#ro = np.load( 'D:/project/random/random_out_23333.npy')
-
     xcord = np.arange(1,nx+1,1)
     ycord = np.arange(1,ny+1,1)
     X,Y = np.meshgrid(xcord,ycord)
@@ -80,8 +62,11 @@ def pred_draw(input_file = 'pred_out.npy', output_file = 'true_out.npy',inf = No
         #d_curve.view_init(60, 35)
     plt.show()
 
+
+
+import matplotlib.pyplot as plt
 for i in range(10):
-    ran = np.random.randint(0, 50000)
+    ran = np.random.randint(0, 5000)
     test_in = pred_out[ran]
     test_out = din[ran]
     result = inverse_index(test_in, pred_out)
