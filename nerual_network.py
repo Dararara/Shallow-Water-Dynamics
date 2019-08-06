@@ -26,4 +26,3 @@ def cnn(din , dout , test_din = None, test_dout = None, validation_split_num = 0
     return history
 
 
-            
