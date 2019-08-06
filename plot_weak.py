@@ -31,6 +31,6 @@ def pred_draw(mode = 1, inf = None, of = None, input_file='pred_out.npy',output_
         d_curve = fig.add_subplot('223',projection='3d')
         d_curve.plot_surface(X,Y,delta,cmap='rainbow')
         plt.show()
-
+        
 #pred_draw('random_output_2.npy','random_pred.npy',10)
 pred_draw(1)
