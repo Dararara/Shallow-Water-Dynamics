@@ -1,11 +1,9 @@
 from keras.models import Model, load_model
-from keras.models import Sequential, Input
-from keras.layers import Dense, Conv2D, Flatten,Concatenate, MaxPooling2D, Dropout, Conv2DTranspose
+from keras.models import Sequential
+from keras.layers import Dense, Conv2D, Flatten
 from keras import callbacks
 import numpy as np
 from keras import regularizers
-from os import listdir
-import re
 
 def cnn(din , dout , test_din = None, test_dout = None, validation_split_num = 0.2,stop_patience = 3, hidden  = 1024, filter_num = 64, kernel_size_1 = (3,3), activation_1 = 'relu'):
     #cnn with one con2D and one hidden layer
