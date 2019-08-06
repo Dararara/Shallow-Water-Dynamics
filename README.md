@@ -13,14 +13,16 @@ after construct, it will compile and train the model using given input and outpu
 
 ## plot.py
 ### pred_draw(...)
-draw the 3d plot for two input matrices, with the error difference plot
+Draw the 3d plot for two input matrices, with the error difference plot
 
-##  predict.py
-code to generate array of the predict output and true output, randomly choose some of observations.
+## predict.py
+Generate array of the predict output and true output, randomly choose some of observations.
 
 ## random_data_generator.py
-generate data for training, initial is a random smooth surface
+Generate surface data after specific steps for training, given a randomly initialized smooth surface as the initial state.
+
+## random_sequence_generator.py
+Generate sequences of surfaces for training, given a randomly initialized smooth surface as the initial state.
 
 ## train.py
-file that read the input and output, split data into train set and test set, and train the model
-
+Read the input and output data, split the data into train set and test set, and train the model.
