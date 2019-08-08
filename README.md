@@ -1,4 +1,8 @@
 # Shallow-Water-Dynamics
+
+## train.py
+This includes the code to call all the function, including generate the data, load the data, train the model, plot the comparision of the result, do the inverse problem and do plot the result. To people who want to run these files, just run this program is enough.
+
 ## Inverse.py
 include a function to do the inverse predict, need: 
 </br>
@@ -23,6 +27,3 @@ Generate surface data after specific steps for training, given a randomly initia
 
 ## random_sequence_generator.py
 Generate sequences of surfaces for training, given a randomly initialized smooth surface as the initial state.
-
-## train.py
-Read the input and output data, split the data into train set and test set, and train the model.
