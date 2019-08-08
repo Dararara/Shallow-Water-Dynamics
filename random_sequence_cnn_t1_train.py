@@ -47,4 +47,4 @@ def sequence_cnn_t1_train(seq_file,model_file):
     model.fit(shuffle=True,batch_size=64, epochs=500, callbacks=[mycall], x=seq_input, y = seq_output)
     model.save(model_file)
 
-sequence_cnn_t1_train('random_sequence_init0.npy','random_cnn_t1_1_3_3_64.h5')
+#sequence_cnn_t1_train('random_sequence_init0.npy','random_cnn_t1_1_3_3_64.h5')
